@@ -1,0 +1,25 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+class ShopFlow extends StatelessWidget {
+  final AppRouter appRouter;
+  const ShopFlow({super.key, required this.appRouter});
+
+  @override
+  Widget build(BuildContext context) {
+    return ScreenUtilInit(
+      designSize: const Size(375, 812),
+      minTextAdapt: true,
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Appointment App',
+        onGenerateRoute: appRouter.generateRoute,
+        theme: ThemeData(
+          // primaryColor: ColorsManager.mainBlue,
+          scaffoldBackgroundColor: Colors.white,
+        ),
+        // initialRoute: Routes.splashView2,
+      ),
+    );
+  }
+}
