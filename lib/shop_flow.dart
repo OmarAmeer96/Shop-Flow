@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shop_flow/core/routing/app_router.dart';
+import 'package:shop_flow/core/routing/routes.dart';
+import 'package:shop_flow/core/theming/colors_manager.dart';
 
 class ShopFlow extends StatelessWidget {
   final AppRouter appRouter;
@@ -16,10 +18,10 @@ class ShopFlow extends StatelessWidget {
         title: 'Appointment App',
         onGenerateRoute: appRouter.generateRoute,
         theme: ThemeData(
-          // primaryColor: ColorsManager.mainBlue,
+          primaryColor: ColorsManager.mainBlue,
           scaffoldBackgroundColor: Colors.white,
         ),
-        // initialRoute: Routes.splashView2,
+        initialRoute: Routes.splashView,
       ),
     );
   }

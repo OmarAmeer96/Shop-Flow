@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shop_flow/core/routing/routes.dart';
+import 'package:shop_flow/features/splash/presentation/views/splash_view.dart';
 
 class AppRouter {
   Route generateRoute(RouteSettings settings) {
@@ -10,10 +11,10 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => const SplashView(),
         );
-      case Routes.homeView:
-        return MaterialPageRoute(
-          builder: (_) => const HomeView(),
-        );
+      // case Routes.homeView:
+      //   return MaterialPageRoute(
+      //     builder: (_) => const HomeView(),
+      //   );
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(
