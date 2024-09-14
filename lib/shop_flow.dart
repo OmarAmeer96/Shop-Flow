@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shop_flow/core/routing/app_router.dart';
 
 class ShopFlow extends StatelessWidget {
   final AppRouter appRouter;
