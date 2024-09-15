@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:shop_flow/core/theming/colors_manager.dart';
 import 'package:shop_flow/core/theming/styles.dart';
 import 'package:shop_flow/core/utils/spacing.dart';
 import 'package:shop_flow/features/home/data/models/product.dart';
-import 'package:shop_flow/features/home/presentation/widgets/product_item_floating_button.dart';
+import 'package:shop_flow/features/home/presentation/widgets/product_price_item.dart';
+import 'package:shop_flow/features/home/presentation/widgets/product_rating_item.dart';
 
 class ProductItemDescriptionSection extends StatelessWidget {
   const ProductItemDescriptionSection({
@@ -30,51 +30,9 @@ class ProductItemDescriptionSection extends StatelessWidget {
               overflow: TextOverflow.ellipsis,
             ),
             verticalSpace(6),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  'EGP ${product.price}',
-                  style: Styles.productNewPriceFont,
-                ),
-                Text(
-                  '${(product.price! * 1.2).toStringAsFixed(2)} EGP',
-                  style: Styles.productOldPriceFont,
-                ),
-              ],
-            ),
+            ProductPriceItem(product: product),
             verticalSpace(8),
-            Row(
-              children: [
-                Icon(
-                  Icons.star,
-                  color: Colors.amber[600],
-                  size: 24.0,
-                ),
-                horizontalSpace(4),
-                RichText(
-                  text: TextSpan(
-                    children: [
-                      TextSpan(
-                        text: product.rating!.rate!.toString(),
-                        style: Styles.ratingFont,
-                      ),
-                      TextSpan(
-                        text: ' (${product.rating!.count})',
-                        style: Styles.ratingCountFont,
-                      ),
-                    ],
-                  ),
-                ),
-                const Spacer(),
-                ProductItemFloatingButton(
-                  onPressed: () {},
-                  backgroundColor: ColorsManager.primaryColor,
-                  icon: Icons.add,
-                  iconColor: Colors.white,
-                ),
-              ],
-            ),
+            ProductRatingItem(product: product),
           ],
         ),
       ),
