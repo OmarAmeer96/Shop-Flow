@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shop_flow/core/routing/routes.dart';
+import 'package:shop_flow/features/home/presentation/views/home_view.dart';
 import 'package:shop_flow/features/onboarding/presentation/views/onboarding_view.dart';
 import 'package:shop_flow/features/splash/presentation/views/splash_view.dart';
 
@@ -16,10 +17,10 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => const OnboardingView(),
         );
-      // case Routes.homeView:
-      //   return MaterialPageRoute(
-      //     builder: (_) => const HomeView(),
-      //   );
+      case Routes.homeView:
+        return MaterialPageRoute(
+          builder: (_) => const HomeView(),
+        );
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(
