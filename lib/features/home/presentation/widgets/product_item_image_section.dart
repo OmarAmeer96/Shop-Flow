@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:shop_flow/core/theming/colors_manager.dart';
+import 'package:shop_flow/features/home/data/models/product.dart';
 import 'package:shop_flow/features/home/presentation/widgets/product_item_floating_button.dart';
 
 class ProductItemImageSection extends StatelessWidget {
   const ProductItemImageSection({
     super.key,
+    required this.product,
   });
+
+  final Product product;
 
   @override
   Widget build(BuildContext context) {

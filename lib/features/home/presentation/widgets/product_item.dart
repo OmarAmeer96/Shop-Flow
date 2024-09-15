@@ -25,11 +25,15 @@ class ProductItem extends StatelessWidget {
           ),
         ],
       ),
-      child: const Column(
+      child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          ProductItemImageSection(),
-          ProductItemDescriptionSection(),
+          ProductItemImageSection(
+            product: product,
+          ),
+          ProductItemDescriptionSection(
+            product: product,
+          ),
         ],
       ),
     );
