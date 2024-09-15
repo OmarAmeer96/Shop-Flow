@@ -8,7 +8,7 @@ class HomeRepo {
 
   HomeRepo(this._apiService);
 
-  Future<ApiResult<Product>> getAllProducts() async {
+  Future<ApiResult<List<Product>>> getAllProducts() async {
     try {
       final response = await _apiService.getAllProducts();
       return ApiResult.success(response);

@@ -21,12 +21,12 @@ class _ApiService implements ApiService {
   String? baseUrl;
 
   @override
-  Future<Product> getAllProducts() async {
+  Future<List<Product>> getAllProducts() async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _options = _setStreamType<Product>(Options(
+    final _options = _setStreamType<List<Product>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -42,10 +42,12 @@ class _ApiService implements ApiService {
           _dio.options.baseUrl,
           baseUrl,
         )));
-    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late Product _value;
+    final _result = await _dio.fetch<List<dynamic>>(_options);
+    late List<Product> _value;
     try {
-      _value = Product.fromJson(_result.data!);
+      _value = _result.data!
+          .map((dynamic i) => Product.fromJson(i as Map<String, dynamic>))
+          .toList();
       // ignore: unused_catch_stack
     } on Object catch (e, s) {
       rethrow;
