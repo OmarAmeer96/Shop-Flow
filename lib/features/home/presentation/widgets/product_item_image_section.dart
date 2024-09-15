@@ -1,8 +1,8 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:shop_flow/core/theming/colors_manager.dart';
 import 'package:shop_flow/features/home/data/models/product.dart';
 import 'package:shop_flow/features/home/presentation/widgets/product_item_floating_button.dart';
+import 'package:shop_flow/features/home/presentation/widgets/product_item_image_widget.dart';
 
 class ProductItemImageSection extends StatefulWidget {
   const ProductItemImageSection({
@@ -31,15 +31,7 @@ class _ProductItemImageSectionState extends State<ProductItemImageSection> {
               topLeft: Radius.circular(16.0),
               topRight: Radius.circular(16.0),
             ),
-            child: CachedNetworkImage(
-              imageUrl: widget.product.image!,
-              fit: BoxFit.contain,
-              width: double.infinity,
-              placeholder: (context, url) => const Center(
-                child: CircularProgressIndicator(),
-              ),
-              errorWidget: (context, url, error) => const Icon(Icons.error),
-            ),
+            child: ProductItemImageWidget(widget: widget),
           ),
           Positioned(
             top: 8,
