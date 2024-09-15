@@ -26,7 +26,7 @@ class Styles {
   );
 
   static TextStyle appBarTitle = TextStyle(
-    fontSize: 24.sp,
+    fontSize: 22.sp,
     color: Colors.white,
     fontFamily: FontFamilyHelper.bold,
   );
