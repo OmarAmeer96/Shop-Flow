@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:shop_flow/core/theming/colors_manager.dart';
 import 'package:shop_flow/features/home/data/models/product.dart';
@@ -22,10 +23,14 @@ class ProductItemImageSection extends StatelessWidget {
               topLeft: Radius.circular(16.0),
               topRight: Radius.circular(16.0),
             ),
-            child: Image.network(
-              'https://via.placeholder.com/150',
+            child: CachedNetworkImage(
+              imageUrl: 'https://via.placeholder.com/150',
               fit: BoxFit.cover,
               width: double.infinity,
+              placeholder: (context, url) => const Center(
+                child: CircularProgressIndicator(),
+              ),
+              errorWidget: (context, url, error) => const Icon(Icons.error),
             ),
           ),
           const Positioned(
