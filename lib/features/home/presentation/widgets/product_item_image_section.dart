@@ -24,8 +24,8 @@ class ProductItemImageSection extends StatelessWidget {
               topRight: Radius.circular(16.0),
             ),
             child: CachedNetworkImage(
-              imageUrl: 'https://via.placeholder.com/150',
-              fit: BoxFit.cover,
+              imageUrl: product.image!,
+              fit: BoxFit.contain,
               width: double.infinity,
               placeholder: (context, url) => const Center(
                 child: CircularProgressIndicator(),
@@ -33,10 +33,11 @@ class ProductItemImageSection extends StatelessWidget {
               errorWidget: (context, url, error) => const Icon(Icons.error),
             ),
           ),
-          const Positioned(
+          Positioned(
             top: 8,
             right: 8,
             child: ProductItemFloatingButton(
+              onPressed: () {},
               backgroundColor: Colors.white,
               icon: Icons.favorite_border_outlined,
               iconColor: ColorsManager.primaryColor,

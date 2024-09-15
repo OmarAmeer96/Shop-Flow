@@ -67,7 +67,8 @@ class ProductItemDescriptionSection extends StatelessWidget {
                   ),
                 ),
                 const Spacer(),
-                const ProductItemFloatingButton(
+                ProductItemFloatingButton(
+                  onPressed: () {},
                   backgroundColor: ColorsManager.primaryColor,
                   icon: Icons.add,
                   iconColor: Colors.white,

@@ -7,12 +7,14 @@ class ProductItemFloatingButton extends StatelessWidget {
     required this.backgroundColor,
     required this.icon,
     required this.iconColor,
+    required this.onPressed,
   });
 
   final double size;
   final Color backgroundColor;
   final Color iconColor;
   final IconData icon;
+  final void Function()? onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +26,7 @@ class ProductItemFloatingButton extends StatelessWidget {
         shape: const CircleBorder(),
         elevation: 2,
         child: IconButton(
-          onPressed: () {},
+          onPressed: onPressed,
           icon: Icon(
             icon,
             color: iconColor,
