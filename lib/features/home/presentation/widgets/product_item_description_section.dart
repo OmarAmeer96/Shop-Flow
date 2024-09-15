@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shop_flow/core/theming/colors_manager.dart';
 import 'package:shop_flow/core/utils/spacing.dart';
-import 'package:shop_flow/features/home/presentation/widgets/product_item_floating_action_button.dart';
+import 'package:shop_flow/features/home/presentation/widgets/product_item_floating_button.dart';
 
 class ProductItemDescriptionSection extends StatelessWidget {
   const ProductItemDescriptionSection({
@@ -47,6 +47,7 @@ class ProductItemDescriptionSection extends StatelessWidget {
                 ),
               ],
             ),
+            verticalSpace(8),
             Row(
               children: [
                 Icon(
@@ -62,10 +63,10 @@ class ProductItemDescriptionSection extends StatelessWidget {
                   ),
                 ),
                 const Spacer(),
-                const ProductItemFloatingActionButton(
+                const ProductItemFloatingButton(
                   backgroundColor: ColorsManager.primaryColor,
-                  iconColor: Colors.white,
                   icon: Icons.add,
+                  iconColor: Colors.white,
                 ),
               ],
             ),

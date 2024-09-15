@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shop_flow/core/di/dependency_injection.dart';
 import 'package:shop_flow/core/routing/routes.dart';
+import 'package:shop_flow/features/home/logic/home_cubit/home_cubit.dart';
 import 'package:shop_flow/features/home/presentation/views/home_view.dart';
 import 'package:shop_flow/features/onboarding/presentation/views/onboarding_view.dart';
 import 'package:shop_flow/features/splash/presentation/views/splash_view.dart';
@@ -19,7 +22,10 @@ class AppRouter {
         );
       case Routes.homeView:
         return MaterialPageRoute(
-          builder: (_) => const HomeView(),
+          builder: (_) => BlocProvider(
+            create: (context) => HomeCubit(getIt())..getAllProducts(),
+            child: const HomeView(),
+          ),
         );
       default:
         return MaterialPageRoute(

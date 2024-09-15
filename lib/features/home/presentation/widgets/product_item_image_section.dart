@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shop_flow/core/theming/colors_manager.dart';
-import 'package:shop_flow/features/home/presentation/widgets/product_item_floating_action_button.dart';
+import 'package:shop_flow/features/home/presentation/widgets/product_item_floating_button.dart';
 
 class ProductItemImageSection extends StatelessWidget {
   const ProductItemImageSection({
@@ -27,10 +27,10 @@ class ProductItemImageSection extends StatelessWidget {
           const Positioned(
             top: 8,
             right: 8,
-            child: ProductItemFloatingActionButton(
+            child: ProductItemFloatingButton(
               backgroundColor: Colors.white,
+              icon: Icons.favorite_border_outlined,
               iconColor: ColorsManager.primaryColor,
-              icon: Icons.favorite_border,
             ),
           ),
         ],
