@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:shop_flow/core/theming/colors_manager.dart';
 import 'package:shop_flow/core/theming/font_family_helper.dart';
 
@@ -31,9 +32,11 @@ class Styles {
   );
 
   static TextStyle splashViewTextLogoFont = TextStyle(
-    fontSize: 28.sp,
+    fontSize: 36.sp,
     color: ColorsManager.primaryColor,
-    fontFamily: FontFamilyHelper.bold,
+    fontFamily: GoogleFonts.dancingScript(
+      fontWeight: FontWeight.w900,
+    ).fontFamily,
   );
 
   static TextStyle font18White600 = TextStyle(

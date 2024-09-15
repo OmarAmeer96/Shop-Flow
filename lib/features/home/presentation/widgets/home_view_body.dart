@@ -6,14 +6,19 @@ class HomeViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
+      physics: const BouncingScrollPhysics(),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
-        crossAxisSpacing: 10.0,
-        mainAxisSpacing: 10.0,
+        crossAxisSpacing: 12.0,
+        mainAxisSpacing: 12.0,
       ),
       itemCount: 20,
       itemBuilder: (context, index) {
         return Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(16.0),
+            color: Colors.grey[200],
+          ),
           color: Colors.blue,
           child: Center(
             child: Text(

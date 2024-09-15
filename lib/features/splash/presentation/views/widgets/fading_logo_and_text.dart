@@ -4,8 +4,8 @@ import 'package:flutter_svg/svg.dart';
 import 'package:shop_flow/core/theming/styles.dart';
 import 'package:shop_flow/core/utils/assets.dart';
 
-class FadingLogo extends StatelessWidget {
-  const FadingLogo({
+class FadingLogoAndText extends StatelessWidget {
+  const FadingLogoAndText({
     super.key,
     required this.opacityAnimation,
   });
@@ -31,7 +31,9 @@ class FadingLogo extends StatelessWidget {
               Text(
                 "Shop Flow",
                 textAlign: TextAlign.center,
-                style: Styles.splashViewTextLogoFont,
+                style: Styles.splashViewTextLogoFont.copyWith(
+                  fontWeight: FontWeight.w900,
+                ),
               ),
             ],
           ),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shop_flow/core/routing/routes.dart';
 import 'package:shop_flow/core/utils/extensions.dart';
-import 'package:shop_flow/features/splash/presentation/views/widgets/fading_logo.dart';
+import 'package:shop_flow/features/splash/presentation/views/widgets/fading_logo_and_text.dart';
 import 'package:shop_flow/features/splash/presentation/views/widgets/sliding_text.dart';
 
 class SplashViewBody extends StatefulWidget {
@@ -38,7 +38,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
       children: [
         Hero(
           tag: "splashView2ToHomeView",
-          child: FadingLogo(
+          child: FadingLogoAndText(
             opacityAnimation: opacityAnimation,
           ),
         ),
