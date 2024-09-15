@@ -12,6 +12,7 @@ class _ApiService implements ApiService {
   _ApiService(
     this._dio, {
     this.baseUrl,
+    this.errorLogger,
   }) {
     baseUrl ??= 'https://fakestoreapi.com/';
   }
@@ -19,6 +20,8 @@ class _ApiService implements ApiService {
   final Dio _dio;
 
   String? baseUrl;
+
+  final ParseErrorLogger? errorLogger;
 
   @override
   Future<Product> getAllProducts() async {
@@ -46,9 +49,8 @@ class _ApiService implements ApiService {
     late Product _value;
     try {
       _value = Product.fromJson(_result.data!);
-      // ignore: unused_catch_stack
     } on Object catch (e, s) {
-      // errorLogger?.logError(e, s, _options);
+      errorLogger?.logError(e, s, _options);
       rethrow;
     }
     return _value;
@@ -82,5 +84,14 @@ class _ApiService implements ApiService {
     }
 
     return Uri.parse(dioBaseUrl).resolveUri(url).toString();
+  }
+}
+
+class ParseErrorLogger {
+  void logError(
+      Object error, StackTrace stackTrace, RequestOptions requestOptions) {
+    debugPrint('Error: $error');
+    debugPrint('RequestOptions: $requestOptions');
+    debugPrint('Stacktrace: $stackTrace');
   }
 }
