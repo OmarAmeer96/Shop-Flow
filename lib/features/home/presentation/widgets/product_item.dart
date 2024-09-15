@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:shop_flow/features/home/data/models/product.dart';
 import 'package:shop_flow/features/home/presentation/widgets/product_item_description_section.dart';
 import 'package:shop_flow/features/home/presentation/widgets/product_item_image_section.dart';
 
 class ProductItem extends StatelessWidget {
   const ProductItem({
     super.key,
-    required this.index,
+    required this.product,
   });
 
-  final int index;
+  final Product product;
 
   @override
   Widget build(BuildContext context) {

@@ -42,7 +42,7 @@ class HomeViewBody extends StatelessWidget {
       itemCount: 20,
       itemBuilder: (context, index) {
         return ProductItem(
-          index: index,
+          product: specializationsResponseModel[index],
         );
       },
     );
