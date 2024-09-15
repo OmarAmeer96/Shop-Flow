@@ -39,6 +39,43 @@ class Styles {
     ).fontFamily,
   );
 
+  static TextStyle productItemTitle = TextStyle(
+    fontSize: 16.sp,
+    color: Colors.black,
+    fontFamily: FontFamilyHelper.bold,
+  );
+
+  static TextStyle productItemSubTitle = TextStyle(
+    fontSize: 14.sp,
+    color: ColorsManager.mainGrey,
+    fontFamily: FontFamilyHelper.regular,
+  );
+
+  static TextStyle productNewPriceFont = TextStyle(
+    fontSize: 12.sp,
+    color: Colors.deepOrange,
+    fontFamily: FontFamilyHelper.bold,
+  );
+
+  static TextStyle productOldPriceFont = TextStyle(
+    fontSize: 12.sp,
+    color: ColorsManager.mainGrey,
+    fontFamily: FontFamilyHelper.regular,
+    decoration: TextDecoration.lineThrough,
+  );
+
+  static TextStyle ratingFont = TextStyle(
+    fontSize: 12.sp,
+    color: ColorsManager.mainGrey,
+    fontFamily: FontFamilyHelper.bold,
+  );
+
+  static TextStyle ratingCountFont = TextStyle(
+    fontSize: 12.sp,
+    color: ColorsManager.mainGrey,
+    fontFamily: FontFamilyHelper.regular,
+  );
+
   static TextStyle font18White600 = TextStyle(
     fontSize: 18.sp,
     color: Colors.white,

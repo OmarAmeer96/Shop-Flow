@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shop_flow/core/theming/colors_manager.dart';
+import 'package:shop_flow/core/theming/styles.dart';
 import 'package:shop_flow/core/utils/spacing.dart';
 import 'package:shop_flow/features/home/data/models/product.dart';
 import 'package:shop_flow/features/home/presentation/widgets/product_item_floating_button.dart';
@@ -22,32 +23,23 @@ class ProductItemDescriptionSection extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             verticalSpace(4),
-            const Text(
-              'Nike Air for sport..sssssssssssssssssssssssssssssssssss.',
+            Text(
+              product.title!,
+              style: Styles.productItemTitle,
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
-              style: TextStyle(
-                fontSize: 16.0,
-                color: Color(0xff1d185f),
-              ),
             ),
             verticalSpace(6),
-            const Row(
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'EGP 1,200',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: Colors.deepOrange,
-                  ),
+                  'EGP ${product.price}',
+                  style: Styles.productNewPriceFont,
                 ),
-                SizedBox(width: 8),
                 Text(
-                  '2,000 EGP',
-                  style: TextStyle(
-                    decoration: TextDecoration.lineThrough,
-                    color: Colors.grey,
-                  ),
+                  '${(product.price! * 1.2).toStringAsFixed(2)} EGP',
+                  style: Styles.productOldPriceFont,
                 ),
               ],
             ),
@@ -57,13 +49,21 @@ class ProductItemDescriptionSection extends StatelessWidget {
                 Icon(
                   Icons.star,
                   color: Colors.amber[600],
-                  size: 22.0,
+                  size: 24.0,
                 ),
-                const SizedBox(width: 4),
-                const Text(
-                  '4.6',
-                  style: TextStyle(
-                    color: Colors.black54,
+                horizontalSpace(4),
+                RichText(
+                  text: TextSpan(
+                    children: [
+                      TextSpan(
+                        text: product.rating!.rate!.toString(),
+                        style: Styles.ratingFont,
+                      ),
+                      TextSpan(
+                        text: ' (${product.rating!.count})',
+                        style: Styles.ratingCountFont,
+                      ),
+                    ],
                   ),
                 ),
                 const Spacer(),
