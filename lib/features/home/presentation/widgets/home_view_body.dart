@@ -12,6 +12,7 @@ class HomeViewBody extends StatelessWidget {
         crossAxisCount: 2,
         crossAxisSpacing: 14.0,
         mainAxisSpacing: 14.0,
+        childAspectRatio: 1 / 1.55,
       ),
       itemCount: 20,
       itemBuilder: (context, index) {
