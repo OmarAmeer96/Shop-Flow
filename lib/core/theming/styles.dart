@@ -24,6 +24,12 @@ class Styles {
     fontFamily: FontFamilyHelper.bold,
   );
 
+  static TextStyle splashViewTextLogoFont = TextStyle(
+    fontSize: 28.sp,
+    color: ColorsManager.primaryColor,
+    fontFamily: FontFamilyHelper.bold,
+  );
+
   static TextStyle font18White600 = TextStyle(
     fontSize: 18.sp,
     color: Colors.white,
