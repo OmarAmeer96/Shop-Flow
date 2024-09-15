@@ -5,7 +5,9 @@ import 'package:shop_flow/core/theming/styles.dart';
 import 'package:shop_flow/core/utils/extensions.dart';
 import 'package:shop_flow/features/home/logic/home_cubit/home_cubit.dart';
 import 'package:shop_flow/features/home/logic/home_cubit/home_state.dart';
+import 'package:shop_flow/features/home/presentation/widgets/custom_fading_widget.dart';
 import 'package:shop_flow/features/home/presentation/widgets/product_item.dart';
+import 'package:shop_flow/features/home/presentation/widgets/product_item_loading_widget.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
@@ -49,10 +51,20 @@ class HomeViewBody extends StatelessWidget {
   }
 
   Widget setUpLoading() {
-    return const Center(
-      child: SizedBox(
-        child: CircularProgressIndicator(),
+    return GridView.builder(
+      physics: const BouncingScrollPhysics(),
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        crossAxisSpacing: 14.0,
+        mainAxisSpacing: 14.0,
+        childAspectRatio: 1 / 1.55,
       ),
+      itemCount: 6,
+      itemBuilder: (context, index) {
+        return const CustomFadingWidget(
+          child: ProductItemLoadingWidget(),
+        );
+      },
     );
   }
 
