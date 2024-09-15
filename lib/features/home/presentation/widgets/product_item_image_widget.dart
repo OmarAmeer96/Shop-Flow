@@ -18,7 +18,6 @@ class ProductItemImageWidget extends StatelessWidget {
       fit: BoxFit.contain,
       width: double.infinity,
       placeholder: (context, url) => const Center(
-        // child: CircularProgressIndicator(),
         child: LoadingAnimation(),
       ),
       errorWidget: (context, url, error) => const Icon(Icons.error),
