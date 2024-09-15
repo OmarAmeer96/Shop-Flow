@@ -24,6 +24,12 @@ class Styles {
     fontFamily: FontFamilyHelper.bold,
   );
 
+  static TextStyle appBarTitle = TextStyle(
+    fontSize: 24.sp,
+    color: Colors.white,
+    fontFamily: FontFamilyHelper.bold,
+  );
+
   static TextStyle splashViewTextLogoFont = TextStyle(
     fontSize: 28.sp,
     color: ColorsManager.primaryColor,
