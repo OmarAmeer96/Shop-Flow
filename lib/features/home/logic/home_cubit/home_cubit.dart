@@ -14,11 +14,11 @@ class HomeCubit extends Cubit<HomeState> {
     emit(const HomeState.loading());
     final response = await _productsRepo.getAllProducts();
     response.when(
-      success: (productsModelResponse) {
-        if (state is ProductsFetched) {
-          emit(HomeState.productsFetched(productsModelResponse));
+      success: (productsResponse) {
+        if (state is Success) {
+          emit(HomeState.success(productsResponse));
         } else {
-          emit(HomeState.productsFetched(productsModelResponse));
+          emit(HomeState.success(productsResponse));
         }
       },
       failure: (error) {

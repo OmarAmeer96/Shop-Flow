@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shop_flow/core/di/dependency_injection.dart';
 import 'package:shop_flow/core/routing/app_router.dart';
 import 'package:shop_flow/core/shared_prefs/shared_prefs.dart';
 import 'package:shop_flow/shop_flow.dart';
@@ -10,6 +11,8 @@ void main() async {
   // Initialize Shared Preferences
   await initSharedPrefsAndGetData();
 
+  // Initialize Dependency Injection
+  setupGetIt();
   runApp(
     ShopFlow(
       appRouter: AppRouter(),
