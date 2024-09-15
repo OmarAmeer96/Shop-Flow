@@ -4,13 +4,21 @@ import 'package:shop_flow/core/theming/colors_manager.dart';
 import 'package:shop_flow/features/home/data/models/product.dart';
 import 'package:shop_flow/features/home/presentation/widgets/product_item_floating_button.dart';
 
-class ProductItemImageSection extends StatelessWidget {
+class ProductItemImageSection extends StatefulWidget {
   const ProductItemImageSection({
     super.key,
     required this.product,
   });
 
   final Product product;
+
+  @override
+  State<ProductItemImageSection> createState() =>
+      _ProductItemImageSectionState();
+}
+
+class _ProductItemImageSectionState extends State<ProductItemImageSection> {
+  bool isFavorited = false;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +32,7 @@ class ProductItemImageSection extends StatelessWidget {
               topRight: Radius.circular(16.0),
             ),
             child: CachedNetworkImage(
-              imageUrl: product.image!,
+              imageUrl: widget.product.image!,
               fit: BoxFit.contain,
               width: double.infinity,
               placeholder: (context, url) => const Center(
@@ -37,9 +45,14 @@ class ProductItemImageSection extends StatelessWidget {
             top: 8,
             right: 8,
             child: ProductItemFloatingButton(
-              onPressed: () {},
+              onPressed: () {
+                setState(() {
+                  isFavorited = !isFavorited;
+                });
+              },
               backgroundColor: Colors.white,
-              icon: Icons.favorite_border_outlined,
+              icon:
+                  isFavorited ? Icons.favorite : Icons.favorite_border_outlined,
               iconColor: ColorsManager.primaryColor,
             ),
           ),
