@@ -65,4 +65,5 @@ class DefaultFirebaseOptions {
     storageBucket: 'shop-flow-54c6e.appspot.com',
     iosBundleId: 'com.example.shopFlow',
   );
+
 }
