@@ -37,7 +37,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Hero(
-          tag: "splashView2ToHomeView",
+          tag: "splashViewToHomeView",
           child: FadingLogoAndText(
             opacityAnimation: opacityAnimation,
           ),
