@@ -2,7 +2,7 @@
 
 **Shop Flow** is a sleek and responsive Flutter app designed to provide users with a premium shopping experience. This app brings together stunning design, fast performance, and clean architecture to deliver a seamless product browsing journey. With smooth animations and a fully responsive layout, Shop Flow makes online shopping more intuitive and engaging.
 
-![Shop Flow Demo](path_to_your_screenshot)
+https://github.com/user-attachments/assets/50912252-e30d-46e2-8737-a2592285f89f
 
 ---
 
@@ -26,6 +26,15 @@ This app exceeds the core requirements by incorporating additional advanced feat
 - **🔗 Repository Pattern**: A dedicated **repository layer** abstracts the data sources, ensuring clean separation between business logic and data handling.
 - **💉 Dependency Injection**: Leveraged **get_it** and **injectable** for automatic dependency injection, making the code more flexible and easier to test.
 - **✨ Tween Animations**: Smooth transitions and enhanced user interaction with additional **tween animations**, adding a level of visual sophistication.
+
+---
+
+## ⚙️ Continuous Integration and Continuous Deployment (CI/CD)
+
+Shop Flow uses a robust CI/CD pipeline to streamline the process of building, testing, and distributing the app. This includes:
+
+- **Fastlane Integration**: Automated Firebase App Distribution via **Fastlane** to distribute the app to testers.
+- **GitHub Actions Workflow**: Automatically builds the app on every push to the `main` branch, distributes it to Firebase, and creates a release on GitHub.
 
 ---
 
@@ -73,9 +82,24 @@ Follow these steps to get **Shop Flow** up and running on your local machine:
 
 ## 📸 Screenshots
 
-Capture the app in action! Here are a few snapshots of Shop Flow's clean design and intuitive interface:
+Here are some snapshots of Shop Flow's clean design and intuitive interface:
 
-(Include screenshots showing the grid view, onboarding, splash screen, etc.)
+### App Icon
+
+
+### Default Splash Screen
+
+
+### Animated Splash Screen
+
+
+### Onboarding Screens
+
+
+### Products Loading
+
+
+### Products Fetched
 
 ---
 
