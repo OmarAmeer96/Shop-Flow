@@ -10,69 +10,50 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # - name: Checkout my repo code
-      #   uses: actions/checkout@v2
+      - name: Checkout my repo code
+        uses: actions/checkout@v2
 
-      # - name: Set up JDK 17
-      #   uses: actions/setup-java@v2
-      #   with:
-      #     java-version: "17"
-      #     distribution: "temurin"
-
-      # - name: Install Flutter
-      #   uses: subosito/flutter-action@v2
-      #   with:
-      #     channel: stable
-
-      # # If there was an error, then run this: "cd android" then "bundle lock --add-platform x86_64-linux"
-      # - name: Setup Ruby
-      #   uses: ruby/setup-ruby@v1
-      #   with:
-      #     ruby-version: "3.3.4"
-      #     bundler-cache: true
-      #     working-directory: android
-
-      # - name: Build and Distribute App
-      #   env:
-      #     APP_ID: ${{ secrets.APP_ID }}
-      #     FIREBASE_CLI_TOKEN: ${{ secrets.FIREBASE_CLI_TOKEN }}
-      #     FIREBASE_OPTIONS_ANDROID_API_KEY: ${{ secrets.FIREBASE_OPTIONS_ANDROID_API_KEY }}
-      #     FIREBASE_OPTIONS_ANDROID_APP_ID: ${{ secrets.FIREBASE_OPTIONS_ANDROID_APP_ID }}
-      #     FIREBASE_OPTIONS_IOS_API_KEY: ${{ secrets.FIREBASE_OPTIONS_IOS_API_KEY }}
-      #     FIREBASE_OPTIONS_IOS_APP_ID: ${{ secrets.FIREBASE_OPTIONS_IOS_APP_ID }}
-      #   run: |
-      #     bundle exec fastlane android firebase_distribution
-      #   working-directory: android
-
-      # - name: Create GitHub Release
-      #   id: create_release
-      #   uses: actions/create-release@v1
-      #   with:
-      #     tag_name: v1.0.${{ github.run_number }}
-      #     release_name: "Shop Flow v1.0.${{ github.run_number }}"
-      #     body: |
-      #       🎉 **Shop Flow v1.0.${{ github.run_number }} is now available!** 🎉
-      #       - Check out the latest version of the app with new features, bug fixes, and performance improvements.
-      #     draft: false
-      #     prerelease: false
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      # - name: Upload APK to GitHub Release
-      #   uses: actions/upload-release-asset@v1
-      #   with:
-      #     upload_url: ${{ steps.create_release.outputs.upload_url }}
-      #     # asset_path: android/app/build/outputs/flutter-apk/app-release.apk
-      #     asset_path: build/app/outputs/flutter-apk/app-release.apk
-      #     # asset_path: ../build/app/outputs/flutter-apk/app-release.apk
-      #     asset_name: shop_flow_v1.0.${{ github.run_number }}.apk
-      #     asset_content_type: application/vnd.android.package-archive
-
-      - name: Upload APK to GitHub Release
-        uses: svenstaro/upload-release-action@v2
+      - name: Set up JDK 17
+        uses: actions/setup-java@v2
         with:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: ../build/app/outputs/flutter-apk/app-release.apk
-          tag: v1.0.${{ github.run_number }}
-          overwrite: true
-          body: "New APK release for Shop Flow v1.0.${{ github.run_number }}"
+          java-version: "17"
+          distribution: "temurin"
+
+      - name: Install Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+
+      # If there was an error, then run this: "cd android" then "bundle lock --add-platform x86_64-linux"
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3.4"
+          bundler-cache: true
+          working-directory: android
+
+      - name: Build and Distribute App
+        env:
+          APP_ID: ${{ secrets.APP_ID }}
+          FIREBASE_CLI_TOKEN: ${{ secrets.FIREBASE_CLI_TOKEN }}
+          FIREBASE_OPTIONS_ANDROID_API_KEY: ${{ secrets.FIREBASE_OPTIONS_ANDROID_API_KEY }}
+          FIREBASE_OPTIONS_ANDROID_APP_ID: ${{ secrets.FIREBASE_OPTIONS_ANDROID_APP_ID }}
+          FIREBASE_OPTIONS_IOS_API_KEY: ${{ secrets.FIREBASE_OPTIONS_IOS_API_KEY }}
+          FIREBASE_OPTIONS_IOS_APP_ID: ${{ secrets.FIREBASE_OPTIONS_IOS_APP_ID }}
+        run: |
+          bundle exec fastlane android firebase_distribution
+        working-directory: android
+
+      - name: Create GitHub Release
+        id: create_release
+        uses: actions/create-release@v1
+        with:
+          tag_name: v1.0.${{ github.run_number }}
+          release_name: "Shop Flow v1.0.${{ github.run_number }}"
+          body: |
+            🎉 **Shop Flow v1.0.${{ github.run_number }} is now available!** 🎉
+            - Check out the latest version of the app with new features, bug fixes, and performance improvements.
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
