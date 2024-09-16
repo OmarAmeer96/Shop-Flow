@@ -1,4 +1,4 @@
-name: Android Fastlane with Firebase App Distribution Workflow
+name: Android Fastlane with Firebase App Distribution and GitHub Release Workflow
 
 on:
   push:
@@ -6,8 +6,9 @@ on:
       - main
 
 jobs:
-  distribute_to_firebase:
+  distribute_to_firebase_and_github:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout my repo code
         uses: actions/checkout@v2
@@ -42,3 +43,25 @@ jobs:
         run: |
           bundle exec fastlane android firebase_distribution
         working-directory: android
+
+      - name: Create GitHub Release
+        id: create_release
+        uses: actions/create-release@v1
+        with:
+          tag_name: v1.0.${{ github.run_number }}
+          release_name: "Shop Flow v1.0.${{ github.run_number }}"
+          body: |
+            🎉 **Shop Flow v1.0.${{ github.run_number }} is now available!** 🎉
+            - Check out the latest version of the app with new features, bug fixes, and performance improvements.
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload APK to GitHub Release
+        uses: actions/upload-release-asset@v1
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: android/app/build/outputs/flutter-apk/app-release.apk # Path to the APK
+          asset_name: shop_flow_v1.0.${{ github.run_number }}.apk
+          asset_content_type: application/vnd.android.package-archive
