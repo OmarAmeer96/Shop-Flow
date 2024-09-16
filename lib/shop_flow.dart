@@ -15,7 +15,7 @@ class ShopFlow extends StatelessWidget {
       minTextAdapt: true,
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Appointment App',
+        title: 'Shop Flow',
         onGenerateRoute: appRouter.generateRoute,
         theme: ThemeData(
           primaryColor: ColorsManager.mainBlue,

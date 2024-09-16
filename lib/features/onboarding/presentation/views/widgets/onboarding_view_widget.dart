@@ -21,7 +21,7 @@ class OnboardingViewWidget extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
+        children: [
           SizedBox(
             height: Responsive.screenHeight(context) * 0.58,
           ),

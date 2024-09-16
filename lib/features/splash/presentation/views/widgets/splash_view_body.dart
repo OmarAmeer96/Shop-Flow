@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shop_flow/core/routing/routes.dart';
 import 'package:shop_flow/core/utils/extensions.dart';
+import 'package:shop_flow/core/utils/spacing.dart';
 import 'package:shop_flow/features/splash/presentation/views/widgets/fading_logo_and_text.dart';
 import 'package:shop_flow/features/splash/presentation/views/widgets/sliding_text.dart';
 
@@ -42,9 +43,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
             opacityAnimation: opacityAnimation,
           ),
         ),
-        const SizedBox(
-          height: 20,
-        ),
+        verticalSpace(20),
         SlidingText(
           slidingAnimation: slidingAnimation,
           opacityAnimation: opacityAnimation,
@@ -60,12 +59,16 @@ class _SplashViewBodyState extends State<SplashViewBody>
     );
 
     // Sliding Animation
-    slidingAnimation =
-        Tween<Offset>(begin: const Offset(0, 10), end: Offset.zero)
-            .animate(animationController);
+    slidingAnimation = Tween<Offset>(
+      begin: const Offset(0, 10),
+      end: Offset.zero,
+    ).animate(animationController);
 
     // Opacity Animation
-    opacityAnimation = Tween<double>(begin: 0, end: 1).animate(
+    opacityAnimation = Tween<double>(
+      begin: 0,
+      end: 1,
+    ).animate(
       CurvedAnimation(
         parent: animationController,
         curve: const Interval(0.5, 1.0),

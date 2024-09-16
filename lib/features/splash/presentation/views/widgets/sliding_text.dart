@@ -13,7 +13,7 @@ class SlidingText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // AnimatedBuilder is Equal to SetState, But Uppdating the Current Widget Only.
+    // AnimatedBuilder is Equal to SetState, But Updating the Current Widget Only.
     return AnimatedBuilder(
       animation: slidingAnimation,
       builder: (context, _) {
