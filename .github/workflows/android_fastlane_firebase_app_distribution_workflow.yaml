@@ -24,7 +24,6 @@ jobs:
         with:
           channel: stable
 
-      # If there was an error, then run this: "cd android" then "bundle lock --add-platform x86_64-linux"
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
@@ -43,17 +42,3 @@ jobs:
         run: |
           bundle exec fastlane android firebase_distribution
         working-directory: android
-
-      - name: Create GitHub Release
-        id: create_release
-        uses: actions/create-release@v1
-        with:
-          tag_name: v1.0.${{ github.run_number }}
-          release_name: "Shop Flow v1.0.${{ github.run_number }}"
-          body: |
-            🎉 **Shop Flow v1.0.${{ github.run_number }} is now available!** 🎉
-            - Check out the latest version of the app with new features, bug fixes, and performance improvements.
-          draft: false
-          prerelease: false
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
