@@ -49,7 +49,6 @@ Shop Flow is built on a robust and modern tech stack using the following powerfu
 - **`flutter_screenutil`**: Adapt your app to different screen sizes.
 - **`animated_splash_screen`**: Beautifully animated splash screens.
 - **`cached_network_image`**: Caches images for performance efficiency.
-- **`flutter_slidable`**: Swipeable actions for seamless product management.
 - **`google_fonts`**: Access to beautiful fonts from Google Fonts for custom typography.
 
 For a full list of dependencies, check the [pubspec.yaml](https://github.com/OmarAmeer96/Shop-Flow/blob/main/pubspec.yaml).
