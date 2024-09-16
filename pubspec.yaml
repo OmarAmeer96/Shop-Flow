@@ -58,8 +58,6 @@ dependencies:
   page_transition: ^2.1.0
   # For caching network images.
   cached_network_image: ^3.4.1
-  # For handling products deletion
-  flutter_slidable: ^3.1.1
   # Icons styling
   font_awesome_flutter: ^10.7.0
   # A build system for Dart code generation and modular compilation.
